@@ -8,14 +8,15 @@ function App() {
     const [books,setBooks] = useState([]);
 
 
-const editBookById = (id,newTitle) =>{
+const editBookById = (id, newTitle) =>{
     const updatedBooks = books.map((book) =>{
-        if(book.id===id) {
-            return {...book, Title:newTitle };
+        if(book.id === id) {
+            return {...book, title:newTitle };
+        
         }
         return book;
     });
-
+    
     setBooks(updatedBooks);
 };
 
@@ -46,7 +47,7 @@ const createBook = (title) => {
     return (
     <div className='app'>
         <h1>Reading List</h1>
-        <BookList onEdit={editBookById} onSubmit={editBookById} books={books} onDelete={deleteBookById} />
+        <BookList onEdit={editBookById}  books={books} onDelete={deleteBookById} />
         <BookCreate onCreate={createBook} />
     </div>
     );
